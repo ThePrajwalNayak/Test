@@ -13,6 +13,8 @@ import com.nayak.model.Friends;
 @RestController
 public class TestController {
 
+	int counter = 0;
+
 	@GetMapping("/friends")
 	public ResponseEntity<List<Friends>> getRating() {
 		Friends f1 = new Friends("Raj Kumar", "Raj");
@@ -20,5 +22,10 @@ public class TestController {
 		Friends f3 = new Friends("Remo Kumar", "Remo");
 		List<Friends> list = Arrays.asList(f1, f2, f3);
 		return new ResponseEntity<List<Friends>>(list, HttpStatus.OK);
+	}
+
+	@GetMapping("/counter")
+	public String getCounter() {
+		return "" + counter++;
 	}
 }
