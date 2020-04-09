@@ -26,6 +26,7 @@ public class TestController {
 
 	@GetMapping("/counter")
 	public String getCounter() {
+		System.out.println("Counter = " + counter);
 		return "" + counter++;
 	}
 }
