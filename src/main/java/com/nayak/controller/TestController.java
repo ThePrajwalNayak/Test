@@ -8,12 +8,17 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.nayak.model.Friends;
 
 @RestController
 public class TestController {
 
 	int counter = 0;
+	
+	Logger logger = LoggerFactory.getLogger(TestController.class);
 
 	@GetMapping("/friends")
 	public ResponseEntity<List<Friends>> getRating() {
@@ -27,6 +32,9 @@ public class TestController {
 	@GetMapping("/counter")
 	public String getCounter() {
 		System.out.println("Counter = " + counter);
+		logger.info("An INFO Message "+counter);
+        logger.warn("A WARN Message"+counter);
+        logger.error("An ERROR Message"+counter);
 		return "" + counter++;
 	}
 }
