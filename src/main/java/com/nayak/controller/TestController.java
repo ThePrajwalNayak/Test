@@ -17,7 +17,8 @@ public class TestController {
 	public ResponseEntity<List<Friends>> getRating() {
 		Friends f1 = new Friends("Raj Kumar", "Raj");
 		Friends f2 = new Friends("Ram Kumar", "Ram");
-		List<Friends> list = Arrays.asList(f1, f2);
+		Friends f3 = new Friends("Remo Kumar", "Remo");
+		List<Friends> list = Arrays.asList(f1, f2, f3);
 		return new ResponseEntity<List<Friends>>(list, HttpStatus.OK);
 	}
 }
